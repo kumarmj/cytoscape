@@ -15,5 +15,20 @@
 </head>
 <body>
     <div id="cy"></div>
+    <script>
+        var cy = cytoscape({
+          container: document.getElementById('cy'),
+          elements: [
+            { data: { id: 'a' } },  // node
+            { data: { id: 'b' } },
+            {
+              data: {               // edge
+                id: 'ab',
+                source: 'a',
+                target: 'b'
+              }
+            }]
+        });
+    </script>
 </body>
 </html>
