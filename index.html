@@ -7,6 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="main.css" type="text/css" />
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/popper.js"></script>
     <style>
         h1{
             text-align: center;
@@ -15,6 +16,11 @@
         p{
             text-align: center;
             color: gray;
+        }
+        #popperCubeTwo, #popperCubeThree {
+          background-color: #EFE7D3;
+          border-radius: 2px;
+          padding: 1em 3em;
         }
     </style>
 </head>
@@ -42,5 +48,25 @@
             <span class="cube three zoom back"><b></b><s></s></span>
         </a>
     </div>
+    <div id="popperCubeTwo" x-placement="bottom" style="position: absolute; left: 469px; top: -683px;">Getting Started</div>
+    <div id="popperCubeThree" x-placement="bottom" style="position: absolute; left: 469px; top: -683px;">Glycolysis</div>
+    
+    <script>
+        var cubeTwo = document.querySelector('.two');
+        var cubeThree = document.querySelector('.three');
+        
+        var cubeTwoPopper = new Popper(cubeTwo, popperCubeTwo, {
+            placement: "bottom"
+        });
+        
+        var cubeThreePopper = new Popper(cubeThree, popperCubeThree, {
+            placement: "bottom"
+        });
+        
+        setInterval(() =>  {
+            cubeTwoPopper.scheduleUpdate()
+            cubeThreePopper.scheduleUpdate();
+        }, 0.1);
+    </script>
 </body>
 </html>
